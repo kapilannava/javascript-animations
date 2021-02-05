@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Grey Blocks</title>
+</head>
+<body>
+    <style>
+    section{
+    text-align: center;
+    padding-top: 200px;
+}
+
+h1{
+    font-size: 60px;
+    padding-bottom: 500px;
+}
+
+p{
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.forma-dashboard {
+    padding-top: 80px;
+}
+
+@keyframes animDash1{
+    from {
+    transform: translateX(0px);
+    opacity: 0;
+    }
+    to {
+    transform: translateX(100px);
+    opacity: 1;
+    }
+    }
+
+    @keyframes animDash2{
+        from {
+        transform: translateX(0px);
+        opacity: 0;
+        }
+        to {
+        transform: translateX(-100px);
+        opacity: 1;
+        }
+        }
+
+.hero-img-grid{
+    display: inline-flex;
+
+}
+
+.animDashboard, .animDashboard2{
+    opacity: 0;
+}
+
+.box-left{
+    margin-top: 200px;
+} 
+
+.box-right{
+    margin-top: 400px;
+} 
+
+    
+    </style>
+        <div class="hero-img-grid">
+            <div>
+                    <img class="box-left animDashboard" src="img/greybox-left.svg" />
+
+            </div>
+            <div>
+                    <img class="forma-dashboard" src="img/image.svg" />
+
+            </div>
+            <div>
+                    <img class="box-right animDashboard2" src="img/greybox-right.svg" data-delay="0.3s" />
+
+            </div>
+        </div>
+
+
+    <script>
+    const greyBlockOne = document.querySelector('.animDashboard');
+    const greyBlockTwo = document.querySelector('.animDashboard2')
+
+    observer = new IntersectionObserver((entries) =>{
+        console.log(entries);
+        if(entries[0].intersectionRatio > 0){
+            entries[0].target.style.animation = `animDash1 2s forwards ease-out`;
+        } else {
+            entries[0].target.style.animation = `none`
+        }
+    })
+
+    observerTwo = new IntersectionObserver((entries) =>{
+        console.log(entries);
+        if(entries[0].intersectionRatio > 0){
+            entries[0].target.style.animation = `animDash2 2s ${entries[0].target.dataset.delay} forwards ease-out`;
+        } else {
+            entries[0].target.style.animation = `none`
+        }
+    })
+
+    observer.observe(greyBlockOne);
+    observerTwo.observe(greyBlockTwo);
+
+    </script>
+</body>
+</html>

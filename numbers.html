@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statistic Numbers</title>
+</head>
+<body>
+        <style>
+            .stats-box{
+                border: solid 1px black;
+            }
+                .animation{
+                opacity: 0;
+                }
+                
+                .flex-container{
+                display: flex;
+                text-align: center;
+                gap: 50px;
+                }
+                .stats-box{
+                    box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  0 12.5px 10px rgba(0, 0, 0, 0.035),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+  0 100px 80px rgba(0, 0, 0, 0.07)
+;
+                }
+
+                .stats-box-text{
+                    margin: auto 10%;
+                }
+
+                .frontpage-stats{
+                font-size: 60px;
+                font-weight: 700;
+                color: #6b3ecc;
+                }
+                @keyframes anim1{
+                from {
+                transform: translateY(50px);
+                opacity: 0;
+                }
+                to {
+                transform: translateY(0);
+                opacity: 1;
+                }
+                }
+                </style>
+        
+        <div>
+                <div class="flex-container">
+                  <div class="animation stats-box" data-delay="0s">
+                    <h2 class="frontpage-stats">100%</h2>
+                    <p class="stats-box-text">
+                      dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    </p>
+                  </div>
+                  
+                    <div class="animation stats-box" data-delay="0.1s">
+                    <h2 class="frontpage-stats">4000+</h2>
+                    <p class="stats-box-text">
+                            dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of.
+                      </p>
+                  </div>
+                  
+                    <div class="animation stats-box" data-delay="0.2s">
+                    <h2 class="frontpage-stats">10 days</h2>
+                    <p class="stats-box-text">
+                            dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                      </p>
+                  </div>
+                  
+                </div>
+                </div>
+
+
+        
+        <script>
+                const anim = document.querySelectorAll('.animation');
+                
+                  observerThree = new IntersectionObserver((entries) =>{
+                
+                entries.forEach(entry => {
+                if(entry.intersectionRatio > 0){
+                entry.target.style.animation = `anim1 0.5s ${entry.target.dataset.delay} forwards ease-out`;
+                }
+                else {
+                entry.target.style.animation = 'none';
+                }
+                })
+                  })
+                anim.forEach(animate => {
+                observerThree.observe(animate);
+                })
+                </script>
+</body>
+</html>

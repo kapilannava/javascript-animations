@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Tabs Scroll</title>
+</head>
+<body>
+<style>
+
+.interactive-dashboard{
+    width: 500px;
+    margin: auto;
+    position: relative;
+}
+
+.main-screen{
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    height: 300px;
+    border: 1px solid black;
+} 
+.interactive-screens{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;   
+    gap: 5%;
+}
+
+.interactive-screen{
+    width: 200px;
+    height: 100px;
+    border: solid 1px black;
+}
+.tabs{
+    display: flex;
+    justify-content: center;
+    gap: 100px; 
+    margin-top: 5%;   
+}
+
+.active{
+    width: 400px;
+    height: 200px;
+}
+
+#tab1, #tab2, #tab3, #tab4{
+    transition: width 1s, height 1s;
+}
+
+.active-tab{
+    text-decoration: underline;
+}
+
+.tab-child{
+    cursor: pointer;
+}
+
+.tab-child.activeTab{
+    text-decoration: underline;
+}
+
+body{
+    scroll-snap-type: y mandatory;
+
+}
+
+</style>
+
+<div style="padding: 500px"></div>
+<div class="interactive-dashboard">
+    <div data-tab-content id="tab1" class="main-screen">
+       <h3>
+            This is the main screen
+       </h3> 
+    </div>
+<div class="interactive-screens">
+    
+        <div data-tab-content id="tab2" class="interactive-screen">
+        <h4>Screen 1</h4>
+        </div>
+
+        <div data-tab-content id="tab3" class="interactive-screen">
+                <h4>Screen 2</h4>
+            </div>
+
+        <div data-tab-content id="tab4" class="interactive-screen">
+                <h4>Screen 3</h4>
+            </div>
+
+    </div>
+<div class="tabs">
+    <div data-tab-target="#tab1" class="tab-child tab-one activeTab">Tab 1</div>
+    <div data-tab-target="#tab2" class="tab-child tab-two">Tab 2</div>
+    <div data-tab-target="#tab3" class="tab-child tab-three">Tab 3</div>
+    <div data-tab-target="#tab4" class="tab-child tab-four">Tab 4</div>
+</div>
+</div>
+<div style="padding: 1000px;"></div>
+<script>
+
+    const tabs = document.getElementById("tab2");
+    const tabs2 = document.getElementById("tab3");
+    const tabs3 = document.getElementById("tab4");
+
+    const tabContents = document.querySelectorAll('[data-tab-content]');
+
+
+window.onscroll = function (e) {
+    
+console.log(e);
+    if(window.scrollY === 0){
+        tabs.classList.remove("active");
+    }
+
+    if(window.scrollY > 1 && window.scrollY < 500){
+        tabs2.classList.remove("active");
+        tabs3.classList.remove("active");
+        tabs.classList.add("active");
+    }
+    if(window.scrollY > 500 && window.scrollY < 1000){
+        tabs.classList.remove("active");
+        tabs3.classList.remove("active");
+        tabs2.classList.add("active");
+    }
+    if(window.scrollY > 1000 && window.scrollY < 1500){
+        tabs.classList.remove("active");
+        tabs2.classList.remove("active");
+        tabs3.classList.add("active");
+    }
+    console.log(window.scrollY);
+
+}
+
+
+
+
+
+</script>
+
+</body>
+</html> 

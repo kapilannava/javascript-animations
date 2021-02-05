@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Tabs</title>
+</head>
+<body>
+<style>
+
+.interactive-dashboard{
+    width: 500px;
+    margin: auto;
+}
+
+.main-screen{
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    height: 300px;
+    border: 1px solid black;
+    opacity: 0;
+} 
+.interactive-screens{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;   
+    gap: 5%;
+}
+
+.interactive-screen{
+    width: 200px;
+    height: 100px;
+    border: solid 1px black;
+}
+.tabs{
+    display: flex;
+    justify-content: center;
+    gap: 100px; 
+    margin-top: 5%;   
+}
+
+.lines-container{
+    margin: 10%;
+}
+
+.line{
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin-bottom: 10%;
+}
+
+.active{
+    width: 100%;
+}
+
+#tab1, #tab2, #tab3, #tab4{
+    transition: width 1s;
+}
+
+.active-tab{
+    text-decoration: underline;
+}
+
+.tab-child{
+    cursor: pointer;
+}
+
+.tab-child.activeTab{
+    text-decoration: underline;
+}
+
+@keyframes appear{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+</style>
+<!-- <div style="padding-bottom: 500px;">
+        <script
+        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player src="https://assets4.lottiefiles.com/private_files/lf30_gojqkqrv.json" 
+        background="transparent" speed="1" 
+        style="height: 300px; display: flex; justify-content: center;" 
+        loop controls autoplay></lottie-player>
+
+</div> -->
+<div class="hero" style="padding-bottom: 1000px; text-align: center;"><h1>Here's the hero section</h1></div>
+<div class="interactive-dashboard">
+    <div data-tab-content id="tab1" class="main-screen active">
+       <h3>
+            This is the main screen
+       </h3> 
+    </div>
+<div class="interactive-screens">
+    
+        <div data-tab-content data-delay="0.3s" id="tab2" class="interactive-screen">
+        <h4>Screen 1</h4>
+        <div class="lines-container">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+        </div>
+        </div>
+
+        <div data-tab-content data-delay="0.5s" id="tab3" class="interactive-screen">
+                <h4>Screen 2</h4>
+            </div>
+
+        <div data-tab-content data-delay="0.7s" id="tab4" class="interactive-screen">
+                <h4>Screen 3</h4>
+            </div>
+
+    </div>
+<div class="tabs">
+    <div data-tab-target="#tab1" class="tab-child tab-one activeTab">Tab 1</div>
+    <div data-tab-target="#tab2" class="tab-child tab-two">Tab 2</div>
+    <div data-tab-target="#tab3" class="tab-child tab-three">Tab 3</div>
+    <div data-tab-target="#tab4" class="tab-child tab-four">Tab 4</div>
+</div>
+</div>
+<script>
+
+const tabChildren = document.querySelectorAll('[data-tab-target]');
+const tabContents = document.querySelectorAll('[data-tab-content]');
+
+const mainScreen = document.querySelector('.main-screen');
+const interactiveScreens = document.querySelectorAll('.interactive-screen');
+
+
+mainObserver = new IntersectionObserver((entry)=>{
+    if(entry[0].intersectionRatio > 0){
+    entry[0].target.style.animation = `appear 2s forwards ease-out`;
+    } else {
+        entry[0].target.style.animation=  `none`;
+    }
+})
+
+interactiveScreensObserver = new IntersectionObserver((entries) =>{
+    entries.forEach((entry) =>{
+        console.log(entry.target.style);
+        if (entry.intersectionRatio > 0){
+        entry.target.style.animation = `appear 2s ${entry.target.dataset.delay} forwards ease-out`;
+        } else {
+            entry.target.style.animation = `none`;
+        }
+    })
+})
+
+mainObserver.observe(mainScreen);
+
+interactiveScreens.forEach(interactiveScreen =>{
+    interactiveScreensObserver.observe(interactiveScreen);
+})
+
+
+
+
+ 
+tabChildren.forEach(tabChild => {
+    tabChild.addEventListener('click', event =>{
+        const target = document.querySelector(tabChild.dataset.tabTarget);
+        tabContents.forEach(tabContent =>{
+            tabContent.classList.remove('active');
+        })
+        tabChildren.forEach(tabChild =>{
+            tabChild.classList.remove('activeTab');
+        })
+        tabChild.classList.add('activeTab');
+        target.classList.add('active');
+    })
+})
+
+
+
+</script>
+
+</body>
+</html> 
