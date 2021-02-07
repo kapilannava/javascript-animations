@@ -5,17 +5,17 @@
 </head>
 <body>
 <style>
-
+/*
+*Tabs Container Setup
+*/
 .interactive-dashboard{
-    width: 500px;
     margin: auto;
 }
 
 .main-screen{
     text-align: center;
     margin: auto;
-    width: 100%;
-    height: 300px;
+    width: 850px;
     border: 1px solid black;
     opacity: 0;
 } 
@@ -31,6 +31,8 @@
     width: 200px;
     height: 100px;
     border: solid 1px black;
+    opacity: 0;
+    transition: width 0.5s height 0.5s;
 }
 .tabs{
     display: flex;
@@ -39,19 +41,12 @@
     margin-top: 5%;   
 }
 
-.lines-container{
-    margin: 10%;
-}
-
-.line{
-    width: 100%;
-    height: 1px;
-    background-color: black;
-    margin-bottom: 10%;
-}
-
 .active{
-    width: 100%;
+    background-color:#f5f5f5;
+}
+
+.main-active{
+    background-color: white !important;
 }
 
 #tab1, #tab2, #tab3, #tab4{
@@ -70,48 +65,173 @@
     text-decoration: underline;
 }
 
+@keyframes grow{
+    0% {opacity: 0;}
+    50% {opacity: 0.5; width: 260px; height: 110px;}
+    100% {opacity: 1; width:250px; height: 100px; }
+}
+
 @keyframes appear{
     from {opacity: 0;}
     to {opacity: 1;}
 }
 
-</style>
-<!-- <div style="padding-bottom: 500px;">
-        <script
-        src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-        <lottie-player src="https://assets4.lottiefiles.com/private_files/lf30_gojqkqrv.json" 
-        background="transparent" speed="1" 
-        style="height: 300px; display: flex; justify-content: center;" 
-        loop controls autoplay></lottie-player>
+@keyframes increase{
+    from {width: 0;}
+    to {width: 100%;}
+}
 
-</div> -->
+@keyframes increaseLines{
+    from {width: 0;}
+    to {width: 100%;}
+}
+
+/*
+* Animations
+*/
+
+.main-screen-animation-container{
+    margin: 2%;
+}
+
+.blue-bar{
+    width: 100%;
+    height: 20px;
+    background-color: #3F7EEE;
+}
+
+.teal-bar{
+    width: 80%;
+    height: 20px;
+    background-color: #4AC0E6;
+}
+
+.red-bar{
+    width: 110%;
+    height: 5px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #4AD0E6;
+}
+
+.lines-container{
+    margin: 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.line{
+    width: 100%;
+    height: 3px;
+    animation-delay: 3s;
+    background-color: black;
+    margin-bottom: 10%;
+}
+
+.dataVisuals{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.bar-graph-data{
+    width: 30px;
+    height: 80px;
+    background-color: blue;
+    margin-right: 1%;
+    display: inline-flex;
+}
+.dataVisuals-col-two{
+    display: flex;
+    flex-direction: column;
+}
+
+.bar-graph-container{
+    margin-top: auto;
+}
+
+</style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
+
 <div class="hero" style="padding-bottom: 1000px; text-align: center;"><h1>Here's the hero section</h1></div>
 <div class="interactive-dashboard">
-    <div data-tab-content id="tab1" class="main-screen active">
-       <h3>
-            This is the main screen
-       </h3> 
+    <div data-tab-content id="tab1" class="main-screen main-active active">
+       <div class="main-screen-animation-container">
+            <div class="blue-bar">
+                    <div class="teal-bar">
+                            <div class="red-bar"></div>
+                    </div>
+            </div>
+       </div>
+       <div class="dataVisuals">
+           <div class="dataVisuals-col dataVisuals-col-one">
+
+           <div id="plot-graph"></div>
+                    <script>
+                            var animation = bodymovin.loadAnimation({
+                            // animationData: { /* ... */ },
+                            container: document.getElementById('plot-graph'), // required
+                            path: 'img/plotLine.json', // required
+                            renderer: 'svg', // required
+                            loop: false, // optional
+                            autoplay: true, // optional
+                            name: "Demo Animation", // optional
+                          });
+
+
+                          </script>
+<div id="plot-base" class="line"></div>
+</div>
+
+<div class="dataVisuals-col dataVisuals-col-two">
+    <div class="bar-graph-container">
+            <div class="bar-graph-data"></div>
+            <div class="bar-graph-data"></div>
+            <div class="bar-graph-data"></div>
     </div>
-<div class="interactive-screens">
+
+</div>
+    </div>
+
+    <div class="interactive-screens">
     
-        <div data-tab-content data-delay="0.3s" id="tab2" class="interactive-screen">
-        <h4>Screen 1</h4>
-        <div class="lines-container">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-        </div>
-        </div>
-
-        <div data-tab-content data-delay="0.5s" id="tab3" class="interactive-screen">
-                <h4>Screen 2</h4>
+            <div data-tab-content data-delay="0s" id="tab2" class="interactive-screen">
+            <div class="lines-container">
+                <div>$</div>
+                <div>
+                        <div style="max-width: 80%" class="line"></div>
+                        <div class="line"></div>
+                        <div style="max-width: 50%" class="line"></div>
+                </div>
             </div>
-
-        <div data-tab-content data-delay="0.7s" id="tab4" class="interactive-screen">
-                <h4>Screen 3</h4>
             </div>
+    
+            <div data-tab-content data-delay="0.5s" id="tab3" class="interactive-screen">
+                    <div class="lines-container">
+                            <div>$</div>
+                            <div>
+                                <div style="max-width: 60%" class="line"></div>
+                                <div style="max-width: 30%" class="line"></div>
+                                <div style="max-width: 80%" class="line"></div>
+                            </div>
+                        </div>
+                </div>
+    
+            <div data-tab-content data-delay="1s" id="tab4" class="interactive-screen">
+                    <div class="lines-container">
+                            <div>$</div>
+                            <div>
+                                    <div style="max-width: 60%" class="line"></div>
+                                    <div style="max-width: 100%" class="line"></div>
+                                    <div style="max-width: 80%" class="line"></div>
+                                </div>
+                        </div>
+                </div>
+    
+        </div>
 
     </div>
+
 <div class="tabs">
     <div data-tab-target="#tab1" class="tab-child tab-one activeTab">Tab 1</div>
     <div data-tab-target="#tab2" class="tab-child tab-two">Tab 2</div>
@@ -123,39 +243,66 @@
 
 const tabChildren = document.querySelectorAll('[data-tab-target]');
 const tabContents = document.querySelectorAll('[data-tab-content]');
-
 const mainScreen = document.querySelector('.main-screen');
 const interactiveScreens = document.querySelectorAll('.interactive-screen');
+const blueBar = document.querySelector('.blue-bar');
+const boxLines = document.querySelectorAll('.line');
 
 
+//Main screen fade in opacity from 0 to 1
 mainObserver = new IntersectionObserver((entry)=>{
     if(entry[0].intersectionRatio > 0){
-    entry[0].target.style.animation = `appear 2s forwards ease-out`;
+    entry[0].target.style.animation = `appear 1s forwards ease-out`;
     } else {
         entry[0].target.style.animation=  `none`;
     }
 })
 
+mainObserver.observe(mainScreen);
+
+//Interactive screen staggered fade-in, keyframes to increase width/height
+// and return to initial state
 interactiveScreensObserver = new IntersectionObserver((entries) =>{
     entries.forEach((entry) =>{
         console.log(entry.target.style);
         if (entry.intersectionRatio > 0){
-        entry.target.style.animation = `appear 2s ${entry.target.dataset.delay} forwards ease-out`;
+        entry.target.style.animation = `grow 1.5s ${entry.target.dataset.delay} forwards ease-out`;
         } else {
             entry.target.style.animation = `none`;
         }
     })
 })
 
-mainObserver.observe(mainScreen);
-
 interactiveScreens.forEach(interactiveScreen =>{
     interactiveScreensObserver.observe(interactiveScreen);
 })
 
+//Blue statistic animation
+observerBlueBar = new IntersectionObserver((entry) =>{
+    if(entry[0].intersectionRatio > 0){
+        entry[0].target.style.animation = `increase 1s forwards ease-out`;
+    } else {
+        entry[0].target.style.animation = `none`;
+    }
+})
+
+observerBlueBar.observe(blueBar);
 
 
+//Line animation
+observeLines = new IntersectionObserver((boxLines) => {
+boxLines.forEach((boxLine) =>{
+    if(boxLine.intersectionRatio > 0){
+        boxLine.target.style.animation = `increaseLines 2s forwards ease-out`;
+    } else {
+        boxLine.target.style.animation = `none`;
+    }
+})
+})
 
+boxLines.forEach(boxLine =>{
+    observeLines.observe(boxLine);
+})
  
 tabChildren.forEach(tabChild => {
     tabChild.addEventListener('click', event =>{

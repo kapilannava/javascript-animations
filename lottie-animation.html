@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+
+<body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
+
+        <div id="icon-container"></div>
+        <div id="small-window-one"></div>
+        <div id="small-window-two"></div>
+        <div id="small-window-three"></div>
+
+        <script>
+          var animation = bodymovin.loadAnimation({
+          // animationData: { /* ... */ },
+          container: document.getElementById('icon-container'), // required
+          path: 'img/layer.json', // required
+          renderer: 'svg', // required
+          loop: true, // optional
+          autoplay: true, // optional
+          name: "Demo Animation", // optional
+        });
+
+        var animation2 = bodymovin.loadAnimation({
+          // animationData: { /* ... */ },
+          container: document.getElementById('small-window-one'), // required
+          path: 'img/smallWindowOne.json', // required
+          renderer: 'svg', // required
+          loop: true, // optional
+          autoplay: true, // optional
+          name: "Demo Animation", // optional
+        });
+        </script>
+</body>
+</html>
