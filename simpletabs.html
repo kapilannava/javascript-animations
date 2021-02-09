@@ -15,16 +15,40 @@
     .activeTab{
         text-decoration: underline;
     }
+
+    .interactive-container{
+        display: flex;
+    }
+
+    .tabs-container{
+        display: flex;
+    }
+    
+    .left-interactive-container, .right-interactive-container{
+        display: grid;
+    }
+
 </style>
 
 <body>
-    <div data-tab-content id="tab1" class="active">Content 1</div>
-    <div data-tab-content id="tab2">Content 2</div>
-    <div data-tab-content id="tab3">Content 3</div>
+    <div class="interactive-container">
+        <div class="left-interactive-container">
+                <div data-tab-content id="tab1" class="active">Content 1</div>
+                <div data-tab-content id="tab2">Content 2</div>
+        </div>
+            <img src="img/graphics.svg">
+            <div class="right-interactive-container">
+                    <div data-tab-content id="tab2">Content 3</div>
+                    <div data-tab-content id="tab1" class="active">Content 4</div>
+            </div>
+    </div>
 
-    <div data-tab-target="#tab1" class="activeTab">tab 1</div>
-    <div data-tab-target="#tab2">tab 2</div>
-    <div data-tab-target="#tab3">tab 3</div>
+    <div class="tabs-container">
+            <div data-tab-target="#tab1" class="activeTab">tab 1</div>
+            <div data-tab-target="#tab2">tab 2</div>
+    </div>
+
+
 
     <script>
     const tabTargets = document.querySelectorAll('[data-tab-target]');
@@ -32,23 +56,20 @@
 
 tabTargets.forEach((tab) =>{
     tab.addEventListener('click', event =>{
-        const target = document.querySelector(tab.dataset.tabTarget);
+        const target = document.querySelectorAll(tab.dataset.tabTarget);
     tabContents.forEach((tabContent) =>{
         tabContent.classList.remove("active");
     })
     tabTargets.forEach((tab) =>{
         tab.classList.remove("activeTab");
     })
-    target.classList.add("active");
+    for (i=0; i<target.length; i++){
+        target[i].classList.add("active");
+    }
     tab.classList.add("activeTab");
     })
 
 })
-
-
-
-
-
 
     </script>
 
