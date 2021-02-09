@@ -8,8 +8,10 @@
 </head>
 
 <style>
+
     .active{
         opacity: 0;
+
     }
 
     .activeTab{
@@ -28,24 +30,36 @@
         display: grid;
     }
 
+    [data-tab-target]{
+        cursor: pointer;
+    }
+
+    .tabs-container{
+        display: flex;
+        justify-content: center;
+        gap: 10%;
+    }
+
 </style>
 
 <body>
     <div class="interactive-container">
         <div class="left-interactive-container">
-                <div data-tab-content id="tab1" class="active">Content 1</div>
-                <div data-tab-content id="tab2">Content 2</div>
+                <div data-tab-content id="tab1" class="active" style="width: 50%; justify-self: flex-end; text-align: right">This fundamentally unique approach 
+                        is the unifying power across our Automation and Prediction products.</div>
+                <div data-tab-content id="tab2" style="justify-self: flex-end;">It’s what makes us limitless.</div>
         </div>
             <img src="img/graphics.svg">
             <div class="right-interactive-container">
-                    <div data-tab-content id="tab2">Content 3</div>
-                    <div data-tab-content id="tab1" class="active">Content 4</div>
+                    <div data-tab-content id="tab2" style="width: 50%;">This fundamentally unique approach 
+                        is the unifying power across our Automation and Prediction products.</div>
+                    <div data-tab-content id="tab1" class="active">It’s what makes us limitless.</div>
             </div>
     </div>
 
     <div class="tabs-container">
-            <div data-tab-target="#tab1" class="activeTab">tab 1</div>
-            <div data-tab-target="#tab2">tab 2</div>
+            <div data-tab-target="#tab1" class="activeTab">Automation</div>
+            <div data-tab-target="#tab2">Prediction</div>
     </div>
 
 
