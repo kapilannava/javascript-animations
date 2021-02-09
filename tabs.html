@@ -318,6 +318,7 @@ boxLines.forEach(boxLine =>{
 tabChildren.forEach(tabChild => {
     tabChild.addEventListener('click', event =>{
         const target = document.querySelector(tabChild.dataset.tabTarget);
+        console.log(target);
         tabContents.forEach(tabContent =>{
             tabContent.classList.remove('active');
         })

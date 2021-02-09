@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .interactive-section__header{
+            text-align: center;
+        }
+        .tab-container{
+            display: flex;
+            justify-content: center;
+            gap: 25%;
+        }
+        .circle{
+            display: flex;
+            justify-content: center;
+        }
+
+        .active{
+            display: none;
+        }
+
+        .activeTab{
+            text-decoration: underline;
+        }
+
+        .tab-label{
+            cursor: pointer;
+        }
+        
+    </style>
+    <div class="interactive-section__header">
+        <h3>
+            Forma AI- Sales Performance Management Platform
+        </h3>
+        <h1>Limitless Sales Performance.
+            <br />One Unified System.
+        </h1>
+        Our end-to-end platform merges the human 
+        control and visibility expected by our 
+        customers with science-based logic and 
+        prediction engines that are exponentially 
+        more powerful than anything else on the market.
+    </div>
+<div class="circle">
+    <img src="img/circles.png">
+</div>
+    <div class="tab-container">
+        <div data-tab-target="#tab1" class="tab-label activeTab">Prediction</div>
+        <div data-tab-target="#tab2" class="tab-label">Automation</div>
+    </div>
+    <div data-tab-content id="tab1" class="active content-container">
+        Lorem ipsum dolor, sit amet c
+        onsectetur adipisicing elit. 
+        Porro vel rem sapiente provident 
+        dolores nulla aliquam impedit possimus 
+        reiciendis amet nobis non aut in obcaecati,
+         iusto sunt magnam illum pariatur.
+    </div>
+    <div data-tab-content id="tab2" class="content-container">
+            Our end-to-end platform merges the human 
+            control and visibility expected by our 
+            customers with science-based logic and 
+            prediction engines that are exponentially 
+            more powerful than anything else on the market.
+        </div>
+
+<script>
+
+const tabChildren=document.querySelectorAll('[data-tab-target]');
+const tabContents=document.querySelectorAll('[data-tab-content]');
+
+tabChildren.forEach(tabChild => {
+    tabChild.addEventListener('click', event =>{
+        const target = document.querySelector(tabChild.dataset.tabTarget);
+        console.log(target);
+        tabContents.forEach(tabContent =>{
+            tabContent.classList.remove('active');
+        })
+        tabChildren.forEach(tabChild =>{
+            tabChild.classList.remove('activeTab');
+        })
+        tabChild.classList.add('activeTab');
+        target.classList.add('active');
+    })
+})
+</script>
+</body>
+</html>
