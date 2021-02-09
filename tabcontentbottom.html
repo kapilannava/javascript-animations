@@ -79,6 +79,11 @@
         font-size: 24px;
     }
 
+    .tabContent-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
 </style>
 
 <body>
@@ -92,17 +97,16 @@
     </div>
     <div class="interactive-container">
         <div class="left-interactive-container">
-                <div data-tab-content id="tab1" class="tab-content active" 
-                style="width: 50%; justify-self: flex-end;">
+                <div class="tab-content" style="width: 50%; justify-self: flex-end;">
                 This fundamentally unique approach 
                         is the unifying power across our Automation and Prediction products.</div>
-                <div data-tab-content id="tab2" class="tab-content" style="justify-self: flex-end;">It’s what makes us limitless.</div>
+                <div class="tab-content" style="justify-self: flex-end;">It’s what makes us limitless.</div>
         </div>
             <img src="img/graphic.png" style="margin: auto 30px;">
             <div class="right-interactive-container">
-                    <div data-tab-content id="tab2"class="tab-content" style="width: 50%;">This fundamentally unique approach 
+                    <div class="tab-content" style="width: 50%;">This fundamentally unique approach 
                         is the unifying power across our Automation and Prediction products.</div>
-                    <div data-tab-content id="tab1" class="tab-content active">It’s what makes us limitless.</div>
+                    <div class="tab-content">It’s what makes us limitless.</div>
             </div>
     </div>
 
@@ -111,8 +115,20 @@
             <div data-tab-target="#tab2" class="tabText">Prediction</div>
     </div>
 
-
-
+    <div class="tabContent-container">
+            <div class="left">
+                    <div data-tab-content id="tab2" style="text-align: right">Lorem ipsum dolor sit amet, 
+                        consectetur adipisicing elit. Corrupti similique veniam 
+                        eum illum aliquid in neque mollitia ipsum dignissimos porro, 
+                        fugit, modi quam aut perspiciatis saepe quae, hic pariatur nemo?</div> 
+            </div>
+            <div class="right">
+        <div data-tab-content id="tab1" class="active">Lorem ipsum dolor sit amet 
+            consectetur, adipisicing elit. Nam corrupti perferendis nostrum debitis 
+            ea illo optio non, omnis inventore odit! Laborum sit et amet qui sapiente 
+            voluptates unde quod ex.</div>
+        </div>
+    </div>
     <script>
     const tabTargets = document.querySelectorAll('[data-tab-target]');
     const tabContents = document.querySelectorAll('[data-tab-content]');
