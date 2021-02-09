@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
 </head>
 
 <style>
+
+    body{
+        background: #f5f5f5;
+        font-family: 'Heebo', sans-serif;
+    }
 
     .active{
         opacity: 0;
@@ -15,7 +22,14 @@
     }
 
     .activeTab{
-        text-decoration: underline;
+        color: #6B3ECC;
+        font-size: 24px;
+        font-weight: 900;
+    }
+
+    .tabText{
+        font-size: 24px;
+        font-weight: 900;
     }
 
     .interactive-container{
@@ -38,28 +52,66 @@
         display: flex;
         justify-content: center;
         gap: 10%;
+        margin-top: 5%;
+    }
+
+    .tab-content{
+        border: 1px solid black;
+        display: table;
+        width: 50%;
+        padding: 10px;
+        box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  0 12.5px 10px rgba(0, 0, 0, 0.035),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+  0 100px 80px rgba(0, 0, 0, 0.07)
+;
+    }
+
+    .interactive-container__heading{
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .interactive-container__heading > p {
+        margin: auto 200px;
     }
 
 </style>
 
 <body>
+    <div class="interactive-container__heading">
+        <h1>
+                Unified Intelligence
+        </h1>
+        <p>
+                Our end-to-end platform merges the human control 
+                and visibility expected by our customers with 
+                science-based logic and prediction engines that 
+                are exponentially more powerful than anything else on the market.
+        </p>
+    </div>
     <div class="interactive-container">
         <div class="left-interactive-container">
-                <div data-tab-content id="tab1" class="active" style="width: 50%; justify-self: flex-end; text-align: right">This fundamentally unique approach 
+                <div data-tab-content id="tab1" class="tab-content active" 
+                style="width: 50%; justify-self: flex-end;">
+                This fundamentally unique approach 
                         is the unifying power across our Automation and Prediction products.</div>
-                <div data-tab-content id="tab2" style="justify-self: flex-end;">It’s what makes us limitless.</div>
+                <div data-tab-content id="tab2" class="tab-content" style="justify-self: flex-end;">It’s what makes us limitless.</div>
         </div>
-            <img src="img/graphics.svg">
+            <img src="img/graphic.png" style="margin: auto 30px;">
             <div class="right-interactive-container">
-                    <div data-tab-content id="tab2" style="width: 50%;">This fundamentally unique approach 
+                    <div data-tab-content id="tab2"class="tab-content" style="width: 50%;">This fundamentally unique approach 
                         is the unifying power across our Automation and Prediction products.</div>
-                    <div data-tab-content id="tab1" class="active">It’s what makes us limitless.</div>
+                    <div data-tab-content id="tab1" class="tab-content active">It’s what makes us limitless.</div>
             </div>
     </div>
 
     <div class="tabs-container">
-            <div data-tab-target="#tab1" class="activeTab">Automation</div>
-            <div data-tab-target="#tab2">Prediction</div>
+            <div data-tab-target="#tab1" class="tabText activeTab">Automation</div>
+            <div data-tab-target="#tab2" class="tabText">Prediction</div>
     </div>
 
 
