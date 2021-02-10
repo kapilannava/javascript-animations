@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
 </head>
 <body>
     <style>
+
+        body{
+            font-family: 'Heebo', sans-serif;
+        }
+
         .interactive-section__header{
             text-align: center;
         }
         .tab-container{
             display: flex;
             justify-content: center;
-            gap: 25%;
+            gap: 30px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid black;
         }
         .circle{
             display: flex;
@@ -26,50 +35,130 @@
         }
 
         .activeTab{
-            text-decoration: underline;
+            font-weight: 900;
+            color: #6B3ECC;
         }
 
         .tab-label{
             cursor: pointer;
+            font-weight: 100;
+        }
+
+        .content-container__prediction{
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 20px;
+            box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  0 12.5px 10px rgba(0, 0, 0, 0.035),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+  0 100px 80px rgba(0, 0, 0, 0.07)
+;
         }
         
-    </style>
-    <div class="interactive-section__header">
-        <h3>
-            Forma AI- Sales Performance Management Platform
-        </h3>
-        <h1>Limitless Sales Performance.
-            <br />One Unified System.
-        </h1>
-        Our end-to-end platform merges the human 
-        control and visibility expected by our 
-        customers with science-based logic and 
-        prediction engines that are exponentially 
-        more powerful than anything else on the market.
-    </div>
-<div class="circle">
-    <img src="img/circles.png">
-</div>
-    <div class="tab-container">
-        <div data-tab-target="#tab1" class="tab-label activeTab">Prediction</div>
-        <div data-tab-target="#tab2" class="tab-label">Automation</div>
-    </div>
-    <div data-tab-content id="tab1" class="active content-container">
-        Lorem ipsum dolor, sit amet c
-        onsectetur adipisicing elit. 
-        Porro vel rem sapiente provident 
-        dolores nulla aliquam impedit possimus 
-        reiciendis amet nobis non aut in obcaecati,
-         iusto sunt magnam illum pariatur.
-    </div>
-    <div data-tab-content id="tab2" class="content-container">
-            Our end-to-end platform merges the human 
-            control and visibility expected by our 
-            customers with science-based logic and 
-            prediction engines that are exponentially 
-            more powerful than anything else on the market.
-        </div>
+        .interactive-content-section{
+            margin: auto 200px;
+        }
 
+        .content-container__text{
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-container__image{
+            width: 300px;
+            padding: 20px;
+        }
+
+        .content-container__cta{
+            display: block;
+            margin: auto;
+        }
+    </style>
+
+<div class="interactive-content-section">
+    <div class="tab-container">
+        <div data-tab-target="#tab1" class="tab-label">Automation</div>
+        <div data-tab-target="#tab2" class="tab-label activeTab">Prediction</div>
+    </div>
+    <div data-tab-content id="tab1" class="content-container">
+        <div class="content-container__text">
+                Our end-to-end platform merges the human 
+                control and visibility expected by our 
+                customers with science-based logic and 
+                prediction engines that are exponentially 
+                more powerful than anything else on the market.
+        </div>
+            <div class="content-container__prediction">
+                <div style="grid-template-rows: 2fr;
+                display: grid;">
+                <div></div>
+                <div>
+                        <h4>
+                                Cross-Enterprise BI
+                        </h4>
+                    <p>
+                            Nibh et mattis integer commodo tempor dui. Id metus adipiscing laoreet sodales egestas in enim orci senectus.
+                    </p>
+                </div>
+            </div>
+                <div style ="margin: auto">
+                        <img src="img/image.svg" class="content-container__image" width="300px">
+<button class="content-container__cta">Get Forma</button>
+                </div>
+                <div style="display: grid; grid-template-rows: 2fr">
+                    <div>
+                            <h4>
+                                    Forecasting & Optimization
+                            </h4>
+                        <p>
+                                Tellus faucibus ac, vel, dolor. Et, proin egestas at amet orci elementum.
+                        </p>
+                    </div>
+            <div></div>
+            </div>
+            </div>
+    </div>
+    <div data-tab-content id="tab2" class="active content-container">
+            <div class="content-container__text">
+                    Our end-to-end platform merges the human 
+                    control and visibility expected by our 
+                    customers with science-based logic and 
+                    prediction engines that are exponentially 
+                    more powerful than anything else on the market.
+            </div>
+                <div class="content-container__prediction">
+                    <div style="display: grid; grid-template-rows: 2fr;">
+                        <div>
+                                <h4>
+                                        Cross-Enterprise BI
+                                </h4>
+                            <p>
+                                    Nibh et mattis integer commodo tempor dui. Id metus adipiscing laoreet sodales egestas in enim orci senectus.
+                            </p>
+                        </div>
+                        <div></div>
+                </div>
+                    <div style ="margin: auto">
+                            <img src="img/image.svg" class="content-container__image" width="300px">
+    <button class="content-container__cta">Get Forma</button>
+                    </div>
+                    <div style="display: grid; grid-template-rows: 2fr;">
+                        <div></div>
+                        <div>
+                                <h4>
+                                        Forecasting & Optimization
+                                </h4>
+                            <p>
+                                    Tellus faucibus ac, vel, dolor. Et, proin egestas at amet orci elementum.
+                            </p>
+                        </div>
+                </div>
+                </div>
+    </div>
+    </div>
 <script>
 
 const tabChildren=document.querySelectorAll('[data-tab-target]');
