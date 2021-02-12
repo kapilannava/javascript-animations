@@ -1,183 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
-</head>
-<body>
-    <style>
-
-        body{
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .interactive-section__header{
-            text-align: center;
-        }
-        .tab-container{
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid black;
-        }
-        .circle{
-            display: flex;
-            justify-content: center;
-        }
-
-        .active{
-            display: none;
-        }
-
-        .activeTab{
-            font-weight: 900;
-            color: #6B3ECC;
-        }
-
-        .tab-label{
-            cursor: pointer;
-            font-weight: 100;
-        }
-
-        .content-container__prediction{
-            display: grid; 
-            grid-template-columns: 1fr 1fr 1fr;
-            padding: 20px;
-            box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.02),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.028),
-  0 12.5px 10px rgba(0, 0, 0, 0.035),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.042),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.05),
-  0 100px 80px rgba(0, 0, 0, 0.07)
-;
-        }
-        
-        .interactive-content-section{
-            margin: auto 200px;
-        }
-
-        .content-container__text{
-            padding: 20px;
-            margin-bottom: 10px;
-        }
-
-        .content-container__image{
-            width: 300px;
-            padding: 20px;
-        }
-
-        .content-container__cta{
-            display: block;
-            margin: auto;
-        }
-    </style>
-
-<div class="interactive-content-section">
-    <div class="tab-container">
-        <div data-tab-target="#tab1" class="tab-label">Automation</div>
-        <div data-tab-target="#tab2" class="tab-label activeTab">Prediction</div>
-    </div>
-    <div data-tab-content id="tab1" class="content-container">
-        <div class="content-container__text">
-                Our end-to-end platform merges the human 
-                control and visibility expected by our 
-                customers with science-based logic and 
-                prediction engines that are exponentially 
-                more powerful than anything else on the market.
-        </div>
-            <div class="content-container__prediction">
-                <div style="grid-template-rows: 2fr;
-                display: grid;">
-                <div></div>
-                <div>
-                        <h4>
-                                Cross-Enterprise BI
-                        </h4>
-                    <p>
-                            Nibh et mattis integer commodo tempor dui. Id metus adipiscing laoreet sodales egestas in enim orci senectus.
-                    </p>
-                </div>
-            </div>
-                <div style ="margin: auto">
-                        <img src="img/image.svg" class="content-container__image" width="300px">
-<button class="content-container__cta">Get Forma</button>
-                </div>
-                <div style="display: grid; grid-template-rows: 2fr">
-                    <div>
-                            <h4>
-                                    Forecasting & Optimization
-                            </h4>
-                        <p>
-                                Tellus faucibus ac, vel, dolor. Et, proin egestas at amet orci elementum.
-                        </p>
-                    </div>
-            <div></div>
-            </div>
-            </div>
-    </div>
-    <div data-tab-content id="tab2" class="active content-container">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Document</title>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+   </head>
+   <body>
+      <style>
+         body{
+         font-family: 'Heebo', sans-serif;
+         }
+         .interactive-section__header{
+         text-align: center;
+         }
+         .tab-container{
+         display: flex;
+         justify-content: center;
+         gap: 200px;
+         margin-bottom: 10px;
+         border-bottom: 1px solid black;
+         }
+         .circle{
+         display: flex;
+         justify-content: center;
+         }
+         .active{
+         display: none;
+         }
+         .activeTab{
+         font-weight: 900;
+         color: #6B3ECC;
+         border-bottom: 1px solid #6B3ECC;
+         }
+         .tab-label{
+         cursor: pointer;
+         font-size: 21px;
+         }
+         .content-container__automation{
+         display: grid; 
+         grid-template-columns: 1fr 1fr 1fr;
+         padding: 20px;
+         box-shadow:
+         0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+         0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+         0 12.5px 10px rgba(0, 0, 0, 0.035),
+         0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+         0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+         0 100px 80px rgba(0, 0, 0, 0.07)
+         ;
+         }
+         .content-container__prediction{
+         box-shadow:
+         0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+         0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+         0 12.5px 10px rgba(0, 0, 0, 0.035),
+         0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+         0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+         0 100px 80px rgba(0, 0, 0, 0.07)
+         ;
+         }
+         .interactive-content-section{
+         margin: auto 200px;
+         }
+         .content-container__text{
+         padding: 20px;
+         margin-bottom: 10px;
+         }
+         .content-container__image{
+         width: 300px;
+         padding: 20px;
+         }
+         .content-container__cta{
+         display: block;
+         margin: auto;
+         }
+         .learn-more{
+         text-decoration: underline;
+         font-weight: 200;
+         cursor: pointer;
+         color: #6B3ECC;
+         }
+      </style>
+      <div class="interactive-content-section">
+         <div class="tab-container">
+            <div data-tab-target="#tab1" class="tab-label">Automation</div>
+            <div data-tab-target="#tab2" class="tab-label activeTab">Prediction</div>
+         </div>
+         <div data-tab-content id="tab1" class="content-container">
             <div class="content-container__text">
-                    Our end-to-end platform merges the human 
-                    control and visibility expected by our 
-                    customers with science-based logic and 
-                    prediction engines that are exponentially 
-                    more powerful than anything else on the market.
+               Our end-to-end platform merges the human 
+               control and visibility expected by our 
+               customers with science-based logic and 
+               prediction engines that are exponentially 
+               more powerful than anything else on the market.
             </div>
-                <div class="content-container__prediction">
-                    <div style="display: grid; grid-template-rows: 2fr;">
-                        <div>
-                                <h4>
-                                        Cross-Enterprise BI
-                                </h4>
-                            <p>
-                                    Nibh et mattis integer commodo tempor dui. Id metus adipiscing laoreet sodales egestas in enim orci senectus.
-                            </p>
-                        </div>
-                        <div></div>
-                </div>
-                    <div style ="margin: auto">
-                            <img src="img/image.svg" class="content-container__image" width="300px">
-    <button class="content-container__cta">Get Forma</button>
-                    </div>
-                    <div style="display: grid; grid-template-rows: 2fr;">
-                        <div></div>
-                        <div>
-                                <h4>
-                                        Forecasting & Optimization
-                                </h4>
-                            <p>
-                                    Tellus faucibus ac, vel, dolor. Et, proin egestas at amet orci elementum.
-                            </p>
-                        </div>
-                </div>
-                </div>
-    </div>
-    </div>
-<script>
-
-const tabChildren=document.querySelectorAll('[data-tab-target]');
-const tabContents=document.querySelectorAll('[data-tab-content]');
-
-tabChildren.forEach(tabChild => {
-    tabChild.addEventListener('click', event =>{
-        const target = document.querySelector(tabChild.dataset.tabTarget);
-        console.log(target);
-        tabContents.forEach(tabContent =>{
-            tabContent.classList.remove('active');
-        })
-        tabChildren.forEach(tabChild =>{
-            tabChild.classList.remove('activeTab');
-        })
-        tabChild.classList.add('activeTab');
-        target.classList.add('active');
-    })
-})
-</script>
-</body>
+            <div class="content-container__prediction">
+               <div style="display: flex; padding: 20px">
+                  <img src="img/image.svg" class="content-container__image" width="300px">
+                  <div style="padding: 20px">
+                     Vitae volutpat est nulla morbi nam pulvinar. Nunc eleifend urna, gravida pretium.
+                  </div>
+               </div>
+               <div style="display: flex; padding: 20px;">
+                  <div style="padding: 20px">
+                     Vitae volutpat est nulla morbi nam pulvinar. Nunc eleifend urna, gravida pretium.
+                  </div>
+                  <img src="img/image.svg" class="content-container__image" width="300px">
+               </div>
+               <button class="content-container__cta">Get Forma</button>
+            </div>
+         </div>
+         <div data-tab-content id="tab2" class="active content-container">
+            <div class="content-container__text">
+               Our end-to-end platform merges the human 
+               control and visibility expected by our 
+               customers with science-based logic and 
+               prediction engines that are exponentially 
+               more powerful than anything else on the market.
+            </div>
+            <div class="content-container__automation">
+               <div style="display: grid; grid-template-rows: 2fr;">
+                  <div>
+                     <h4>
+                        Logic
+                     </h4>
+                     <p>
+                        Tellus faucibus ac, vel, dolor. Et, proin egestas at amet orci elementum.                    
+                     </p>
+                     <p class="learn-more">Learn more</p>
+                  </div>
+                  <div>
+                     <h4>
+                        Communication
+                     </h4>
+                     <p>
+                        Diam nunc quis porttitor rhoncus quisque enim in posuere at. In nunc pretium vulputate.                             
+                     </p>
+                     <p class="learn-more">Learn more</p>
+                  </div>
+               </div>
+               <div style ="margin: auto">
+                  <img src="img/image.svg" class="content-container__image" width="300px">
+                  <button class="content-container__cta">Get Forma</button>
+               </div>
+               <div style="display: grid; grid-template-rows: 2fr;">
+                  <div>
+                     <h4>
+                        Change Management                                 
+                     </h4>
+                     <p>
+                        Nibh et mattis integer commodo tempor dui. Id metus adipiscing laoreet sodales egestas in enim orci senectus.                                 
+                     </p>
+                     <p class="learn-more">Learn more</p>
+                  </div>
+                  <div>
+                     <h4>
+                        Data Integration                     
+                     </h4>
+                     <p>
+                        Massa, quam sodales molestie scelerisque faucibus aliquet pharetra euismod pellentesque. 
+                     </p>
+                     <p class="learn-more">Learn more</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         const tabChildren=document.querySelectorAll('[data-tab-target]');
+         const tabContents=document.querySelectorAll('[data-tab-content]');
+         
+         tabChildren.forEach(tabChild => {
+             tabChild.addEventListener('click', event =>{
+                 const target = document.querySelector(tabChild.dataset.tabTarget);
+                 console.log(target);
+                 tabContents.forEach(tabContent =>{
+                     tabContent.classList.remove('active');
+                 })
+                 tabChildren.forEach(tabChild =>{
+                     tabChild.classList.remove('activeTab');
+                 })
+                 tabChild.classList.add('activeTab');
+                 target.classList.add('active');
+             })
+         })
+      </script>
+   </body>
 </html>
