@@ -19,14 +19,31 @@
         font-weight: bold;
         color: #6B3ECC;
         text-decoration: underline;
+        font-size: 16px;
     }
 
     .mobile-automation-prediction{
         padding: 20px;
+        box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  0 12.5px 10px rgba(0, 0, 0, 0.035),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+  0 100px 80px rgba(0, 0, 0, 0.07)
+;
+
     }
     .mobile-benefits-dashboard{
         display: flex;
         flex-direction: row-reverse;
+    }
+    .mobile-benefits-item{
+        padding-bottom: 30px;
+    }
+    .mobile-benefits-paragraph{
+        font-size: 18px;
+        padding-bottom: 40px;
     }
 </style>
 
@@ -37,23 +54,23 @@
         <div class="mobile-benefits-dashboard">
         <img src="dashboard.svg">
         </div>
-        <div>
+        <div class="mobile-benefits-paragraph">
                 Frictionless flow across your system, 
                 powering plan rules, displays & reporting,
                  and dynamic change management.
         </div>
         <ul class="mobile-benefits">
-            <li>
+            <li class="mobile-benefits-item">
                 Planning & Logic
             </li>
-            <li>
-                Communication
+            <li class="mobile-benefits-item">
+                    Communication
             </li>
-            <li>
-                Change Management
+            <li class="mobile-benefits-item">
+                    Change Management
             </li>
-            <li>
-                Data Integration
+            <li class="mobile-benefits-item">
+                    Data Integration
             </li>
         </ul>
     </div>
@@ -63,23 +80,23 @@
             <div class="mobile-benefits-dashboard">
                     <img style="padding-left: 0px;" src="dashboard.svg">
             </div>
-            <div>
+            <div class="mobile-benefits-paragraph">
                     Frictionless flow across your system, 
                     powering plan rules, displays & reporting,
                      and dynamic change management.
             </div>
             <ul class="mobile-benefits">
-                <li>
-                    Planning & Logic
+                    <li class="mobile-benefits-item">
+                            Planning & Logic
                 </li>
-                <li>
-                    Communication
+                <li class="mobile-benefits-item">
+                        Communication
                 </li>
-                <li>
-                    Change Management
+                <li class="mobile-benefits-item">
+                        Change Management
                 </li>
-                <li>
-                    Data Integration
+                <li class="mobile-benefits-item">
+                        Data Integration
                 </li>
             </ul>
         </div>
