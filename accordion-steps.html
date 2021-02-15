@@ -9,13 +9,116 @@
 <body>
     <style>
 
+        .culture-accordion{
+            /* margin: auto 200px; */
+        }
+
+        .accordion_item{
+            display: flex;
+        }
+
+        .align_right{
+            flex-direction: row-reverse;
+        }
+
+.accordion_expand__right{
+            margin-left: auto;
+            align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+        }
+.accordion_expand{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer; 
+}
+
+hr {
+    max-width: 800px;
+    margin-right: 0px;
+}    
+
+.hr-left {
+    max-width: 800px;
+    margin-left: 0px;
+}   
+
+.accordion__content{
+    overflow: hidden;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    height: 0px;
+}
+
+
+.active {
+    display: block;
+    height: 50px;
+}
+ 
     </style>
 
     <div class="culture-accordion">
-Hello
+
+        <div class="accordion_item">
+            <div>Number 1</div>
+<h1>No Jerks. So Silos.</h1>
+<div data-tab-target="#tab1" class="accordion_expand accordion_expand__right">+</div>
+        </div>
+    <div data-tab-content id="tab1" class="accordion__content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Illum distinctio iste rem totam? Ullam, provident saepe delectus 
+            accusantium dignissimos enim quaerat cum aperiam commodi! Magni 
+            aut quis voluptas iure omnis?
+        </div>
+        <hr>
+        <div class="accordion_item">
+                <div data-tab-target="#tab2" class="accordion_expand">+</div>
+                <h1 style="margin-left: auto">No Jerks. So Silos.</h1>
+<div>Number 2</div>
+        </div>
+<div  data-tab-content id="tab2" class="accordion__content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Illum distinctio iste rem totam? Ullam, provident saepe delectus 
+        accusantium dignissimos enim quaerat cum aperiam commodi! Magni 
+        aut quis voluptas iure omnis?
     </div>
+    <hr class="hr-left">
+        <div class="accordion_item">
+                <div>Number 3</div>
+<h1>No Jerks. So Silos.</h1>
+<div  data-tab-target="#tab3" class="accordion_expand accordion_expand__right">+</div>
+        </div>
+    </div>
+<div data-tab-content id="tab3" class="accordion__content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Illum distinctio iste rem totam? Ullam, provident saepe delectus 
+        accusantium dignissimos enim quaerat cum aperiam commodi! Magni 
+        aut quis voluptas iure omnis?   
+    </div>
+    <hr>
 
     <script>
+
+const accordionExpand = document.querySelectorAll('[data-tab-target]');
+const accordionContent = document.querySelectorAll('[data-tab-content]');
+
+
+
+accordionExpand.forEach(accordionExpandItem => {
+    accordionExpandItem.addEventListener('click', event => {
+        const target = document.querySelector(accordionExpandItem.dataset.tabTarget);
+        target.classList.toggle("active");
+        console.log(target.classList)
+    })
+})
+
+
+
     </script>
 </body>
 </html>
