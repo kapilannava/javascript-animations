@@ -22,8 +22,8 @@
         }
 
 .accordion_expand__right{
-            margin-left: auto;
-            align-items: center;
+    margin-left: auto;
+    align-items: center;
     justify-content: center;
     display: flex;
     cursor: pointer;
@@ -33,6 +33,19 @@
     justify-content: center;
     display: flex;
     cursor: pointer; 
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 30px;
+    padding: 0px 15px;
+    background: #6B3ECC;
+    color: white;
+}
+
+span{
+    padding: 2px 10px;
+    background: purple;
+    font-size: 25px;
+    color: white;
 }
 
 hr {
@@ -52,12 +65,29 @@ hr {
     -o-transition: all 0.3s linear;
     transition: all 0.3s linear;
     height: 0px;
+    max-width: 800px;
 }
 
+.accordion__content__right{
+    max-width: 800px;
+    margin-left: auto;
+}
 
 .active {
     display: block;
     height: 50px;
+}
+
+.activeTab {
+    transform: rotate(45deg);
+    background-color: white;
+    color: black;
+}
+
+.accordion_number{
+    font-weight: bold;
+    color: #6B3ECC;
+
 }
  
     </style>
@@ -65,36 +95,33 @@ hr {
     <div class="culture-accordion">
 
         <div class="accordion_item">
-            <div>Number 1</div>
-<h1>No Jerks. So Silos.</h1>
-<div data-tab-target="#tab1" class="accordion_expand accordion_expand__right">+</div>
+            <div>
+                    <div class="accordion_number">Number 1</div>
+                    <h1>No Jerks. So Silos.</h1>
+            </div>
+<div data-tab-target="#tab1" class="accordion_expand accordion_expand__right">
++
+</div>
         </div>
-    <div data-tab-content id="tab1" class="accordion__content">
+    <div data-tab-content id="tab1" class="accordion__content accordion__content__right">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. 
             Illum distinctio iste rem totam? Ullam, provident saepe delectus 
             accusantium dignissimos enim quaerat cum aperiam commodi! Magni 
             aut quis voluptas iure omnis?
         </div>
         <hr>
+
         <div class="accordion_item">
-                <div data-tab-target="#tab2" class="accordion_expand">+</div>
-                <h1 style="margin-left: auto">No Jerks. So Silos.</h1>
-<div>Number 2</div>
-        </div>
-<div  data-tab-content id="tab2" class="accordion__content">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Illum distinctio iste rem totam? Ullam, provident saepe delectus 
-        accusantium dignissimos enim quaerat cum aperiam commodi! Magni 
-        aut quis voluptas iure omnis?
-    </div>
-    <hr class="hr-left">
-        <div class="accordion_item">
-                <div>Number 3</div>
-<h1>No Jerks. So Silos.</h1>
-<div  data-tab-target="#tab3" class="accordion_expand accordion_expand__right">+</div>
+            <div>
+                    <div class="accordion_number">Number 3</div>
+                    <h1>Love our tech. Love our customers.</h1>
+            </div>
+<div  data-tab-target="#tab3" class="accordion_expand accordion_expand__right">
++
+</div>
         </div>
     </div>
-<div data-tab-content id="tab3" class="accordion__content">
+<div data-tab-content id="tab3" class="accordion__content accordion__content__right">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. 
         Illum distinctio iste rem totam? Ullam, provident saepe delectus 
         accusantium dignissimos enim quaerat cum aperiam commodi! Magni 
@@ -102,22 +129,34 @@ hr {
     </div>
     <hr>
 
+    <div class="accordion_item">
+        <div data-tab-target="#tab2" class="accordion_expand">+
+            </div>
+            <div class="accordion_number">Number 2</div>
+        <h1>Be precise. Be relentless.</h1>
+</div>
+<div  data-tab-content id="tab2" class="accordion__content">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+Illum distinctio iste rem totam? Ullam, provident saepe delectus 
+accusantium dignissimos enim quaerat cum aperiam commodi! Magni 
+aut quis voluptas iure omnis?
+</div>
+<hr class="hr-left">
+
+    
     <script>
 
 const accordionExpand = document.querySelectorAll('[data-tab-target]');
 const accordionContent = document.querySelectorAll('[data-tab-content]');
 
 
-
 accordionExpand.forEach(accordionExpandItem => {
     accordionExpandItem.addEventListener('click', event => {
         const target = document.querySelector(accordionExpandItem.dataset.tabTarget);
         target.classList.toggle("active");
-        console.log(target.classList)
+        accordionExpandItem.classList.toggle("activeTab");
     })
 })
-
-
 
     </script>
 </body>
