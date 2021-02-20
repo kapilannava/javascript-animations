@@ -18,11 +18,11 @@
          text-align: center;
          }
          .tab-container{
-         display: flex;
-         justify-content: center;
-         gap: 200px;
+         display: grid;
+         grid-template-columns: 1fr 1fr;
          margin-bottom: 10px;
-         border-bottom: 1px solid black;
+         text-align: center;
+         padding: 20px 40px 0px;
          }
          .circle{
          display: flex;
@@ -32,9 +32,15 @@
          display: none;
          }
          .activeTab{
-         font-weight: 900;
+            font-style: normal;
+font-weight: bold;
+font-size: 21px;
          color: #6B3ECC;
-         border-bottom: 1px solid #6B3ECC;
+         }
+
+         .activeTab > hr{
+            border-color:#6B3ECC;
+            box-shadow: 0px 4px 10px rgba(141, 91, 191, 0.36), 0px 1.6711px 4.17776px rgba(141, 91, 191, 0.258788), 0px 0.893452px 2.23363px rgba(141, 91, 191, 0.214599), 0px 0.500862px 1.25216px rgba(141, 91, 191, 0.18), 0px 0.266004px 0.66501px rgba(141, 91, 191, 0.145401), 0px 0.11069px 0.276726px rgba(141, 91, 191, 0.101212);
          }
          .tab-label{
          cursor: pointer;
@@ -44,35 +50,25 @@
          display: grid; 
          grid-template-columns: 1fr 1fr 1fr;
          padding: 20px;
-         box-shadow:
-         0 2.8px 2.2px rgba(0, 0, 0, 0.02),
-         0 6.7px 5.3px rgba(0, 0, 0, 0.028),
-         0 12.5px 10px rgba(0, 0, 0, 0.035),
-         0 22.3px 17.9px rgba(0, 0, 0, 0.042),
-         0 41.8px 33.4px rgba(0, 0, 0, 0.05),
-         0 100px 80px rgba(0, 0, 0, 0.07)
-         ;
+
          }
-         .content-container__prediction{
-         box-shadow:
-         0 2.8px 2.2px rgba(0, 0, 0, 0.02),
-         0 6.7px 5.3px rgba(0, 0, 0, 0.028),
-         0 12.5px 10px rgba(0, 0, 0, 0.035),
-         0 22.3px 17.9px rgba(0, 0, 0, 0.042),
-         0 41.8px 33.4px rgba(0, 0, 0, 0.05),
-         0 100px 80px rgba(0, 0, 0, 0.07)
-         ;
-         }
+
          .interactive-content-section{
-         margin: auto 200px;
+            width: 850px;
+            margin: auto;
+            box-shadow: 0px 28px 48px rgba(57, 51, 65, 0.07), 0px 10.2205px 17.5208px rgba(57, 51, 65, 0.0482987), 0px 4.96184px 8.50602px rgba(57, 51, 65, 0.0389404), 0px 2.43239px 4.16981px rgba(57, 51, 65, 0.0310596), 0px 0px 1.64875px rgba(57, 51, 65, 0.0217013);
+border-radius: 3px;       
          }
          .content-container__text{
-         padding: 20px;
          margin-bottom: 10px;
+         font-style: normal;
+font-weight: 300;
+font-size: 24px;
+line-height: 40px;
+text-align: center;
          }
          .content-container__image{
-         width: 300px;
-         padding: 20px;
+
          }
          .content-container__cta{
          display: block;
@@ -84,89 +80,111 @@
          cursor: pointer;
          color: #6B3ECC;
          }
+         .content-container{
+            padding: 20px 50px;
+         }
+
+         .test{
+            display: flex;
+         }
+
+         .content-container__description{
+            display: flex;
+            margin-top: 5%;
+            font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 160%;
+         }
+         .automation-list{
+            font-size: 24px;
+    line-height: 40px;
+    list-style: none;
+    padding-left: 250px;
+         }
+
+         .automation-list__item{
+            padding-bottom: 25px;
+         }
+
+         .prediction-container__cta, .automation-container__cta{
+            display: flex;
+            justify-content: center;
+         }
+
+         .automation__cta{
+            background: linear-gradient(180deg, #7B4BDF 0%, #6B3ECC 100%);
+            color: white;
+            font-size: 14px;
+            padding: 16px 50px;
+            line-height: 16px;
+         }
+         .prediction__cta{
+            font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 24px;
+/* identical to box height, or 171% */
+
+text-decoration-line: underline;
+
+/* Solid/Purple */
+
+color: #6B3ECC;
+         }
       </style>
       <div class="interactive-content-section">
          <div class="tab-container">
-            <div data-tab-target="#tab1" class="tab-label">Automation</div>
-            <div data-tab-target="#tab2" class="tab-label activeTab">Prediction</div>
+            <div data-tab-target="#tab1" class="tab-label">Automation<hr /></div>
+            <div data-tab-target="#tab2" class="tab-label activeTab">Prediction<hr /></div>
          </div>
          <div data-tab-content id="tab1" class="content-container">
             <div class="content-container__text">
-               Our end-to-end platform merges the human 
-               control and visibility expected by our 
-               customers with science-based logic and 
-               prediction engines that are exponentially 
-               more powerful than anything else on the market.
+                  Our most advanced product, fueled by proprietary predictive capabilities that extends across the enterprise.
             </div>
             <div class="content-container__prediction">
-               <div style="display: flex; padding: 20px">
-                  <img src="img/image.svg" class="content-container__image" width="300px">
-                  <div style="padding: 20px">
-                     Vitae volutpat est nulla morbi nam pulvinar. Nunc eleifend urna, gravida pretium.
+                  <div class="test">
+                     <div class="content-container__image">
+                        <img src="dashboard.svg" />
+                     </div>
+                     <div style="padding-right: 50px;" class="content-container__description">
+                           Vitae volutpat est nulla morbi nam pulvinar. Nunc eleifend urna, gravida pretium.
+                     </div>
                   </div>
-               </div>
-               <div style="display: flex; padding: 20px;">
-                  <div style="padding: 20px">
-                     Vitae volutpat est nulla morbi nam pulvinar. Nunc eleifend urna, gravida pretium.
-                  </div>
-                  <img src="img/image.svg" class="content-container__image" width="300px">
-               </div>
-               <button class="content-container__cta">Get Forma</button>
+
+                  <div class="test">
+                        <div style="padding-left: 50px;" class="content-container__description">
+                              Vitae volutpat est nulla morbi nam pulvinar. Nunc eleifend urna, gravida pretium.
+                        </div>
+                        <div class="content-container__image">
+                              <img src="dashboard.svg" />
+                           </div>
+                     </div>
+                     <div class="prediction-container__cta">
+                           <span class="prediction__cta">See how it works</span>
+                     </div>
             </div>
          </div>
          <div data-tab-content id="tab2" class="active content-container">
             <div class="content-container__text">
-               Our end-to-end platform merges the human 
-               control and visibility expected by our 
-               customers with science-based logic and 
-               prediction engines that are exponentially 
-               more powerful than anything else on the market.
+                  Frictionless flow across your system, powering plan rules, displays & reporting, and dynamic change management.
             </div>
-            <div class="content-container__automation">
-               <div style="display: grid; grid-template-rows: 2fr;">
-                  <div>
-                     <h4>
-                        Logic
-                     </h4>
-                     <p>
-                        Tellus faucibus ac, vel, dolor. Et, proin egestas at amet orci elementum.                    
-                     </p>
-                     <p class="learn-more">Learn more</p>
-                  </div>
-                  <div>
-                     <h4>
-                        Communication
-                     </h4>
-                     <p>
-                        Diam nunc quis porttitor rhoncus quisque enim in posuere at. In nunc pretium vulputate.                             
-                     </p>
-                     <p class="learn-more">Learn more</p>
-                  </div>
-               </div>
-               <div style ="margin: auto">
-                  <img src="img/image.svg" class="content-container__image" width="300px">
-                  <button class="content-container__cta">Get Forma</button>
-               </div>
-               <div style="display: grid; grid-template-rows: 2fr;">
-                  <div>
-                     <h4>
-                        Change Management                                 
-                     </h4>
-                     <p>
-                        Nibh et mattis integer commodo tempor dui. Id metus adipiscing laoreet sodales egestas in enim orci senectus.                                 
-                     </p>
-                     <p class="learn-more">Learn more</p>
-                  </div>
-                  <div>
-                     <h4>
-                        Data Integration                     
-                     </h4>
-                     <p>
-                        Massa, quam sodales molestie scelerisque faucibus aliquet pharetra euismod pellentesque. 
-                     </p>
-                     <p class="learn-more">Learn more</p>
-                  </div>
-               </div>
+            <ul class="automation-list">
+               <li class="automation-list__item">
+                  Logic
+               </li>
+               <li class="automation-list__item">
+                  Change Management
+               </li>
+               <li class="automation-list__item">
+                  Data Integration
+               </li>
+               <li class="automation-list__item">
+                  Communication
+               </li>
+            </ul>
+            <div class="automation-container__cta">
+                  <button class="automation__cta">Automation</button>
             </div>
          </div>
       </div>
