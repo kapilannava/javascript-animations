@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @media (min-width: 768px){
+            .mobile-accordion{
+                display: none;
+            }
+        }
+
+.mobile-accordion{
+padding-top: 20px;
+}
+
+.mobile-accordion__value{
+            color: #6B3ECC;
+            font-weight: bold;
+font-size: 16px;
+        }
+        
+        .mobile-accordion__title{
+            display: flex;
+            color: black;
+            font-weight: bold;
+font-size: 24px;
+        }
+        .mobile-accordion__down-caret{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-left: 5px;
+        }
+
+.mobile-accordion__item{
+padding-bottom: 40px;
+}
+.mobile-accordion__content{
+font-size: 16px;
+}
+
+    [data-tab-content-section]{
+        overflow: hidden;
+        -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+        max-height: 0px;
+        }
+    .activeClass[data-tab-content-section]{
+        display: block;
+        max-height: 300px;
+    }
+    .activeTabClass .mobile-accordion__down-caret{
+        transform: rotate(270deg)
+    }
+    </style>
+    <div class="mobile-accordion">
+    <div class="mobile-accordion__item">
+        <div class="mobile-accordion__value">Value # 1</div>
+            <div class="mobile-accordion__title" data-tab-item="#tab1">
+                    <div>No jerks. So silos.</div>
+                    <div class="mobile-accordion__down-caret">◂</div>
+            </div>
+    <div class="mobile-accordion__content" data-tab-content-section="" id="tab1">
+            We’re diverse by design, collaborating across multiple teams to solve wildly complex 
+            business problems. And we’re only as good as our people – the ones who create, market, 
+            service, and sell our technology. We’re real. We have kids and pets. Mortgages and student 
+            loans. We’re in this together. But to be one of us, <strong>you can’t be a jerk</strong>, no matter how 
+            brilliant you might be.
+            <strong>And you have to play nice with others.</strong>
+
+            <p>
+                    No exceptions.    
+            </p>
+        </div>
+    </div>
+    <div class="mobile-accordion__item">
+            <div class="mobile-accordion__value">Value # 2</div>
+            <div class="mobile-accordion__title" data-tab-item="#tab2">
+                    <div>Be precise. Be relentless. </div>
+                    <div class="mobile-accordion__down-caret">◂</div>
+            </div>
+        <div class="mobile-accordion__content" data-tab-content-section="" id="tab2">
+                Our platform executes calculations and processes that need to function with complete 
+                accuracy, every time.  So, we operate with precision in everything we do.  
+                When things don’t go to plan, we assess quickly and develop solutions to 
+                ensure the same error never occurs twice.
+                <strong>Quality and accuracy, always.</strong>
+
+                <p>
+                        We believe complacency breeds failure, so we set new goals as quickly as 
+                        we achieve them. We persist in the face of adversity, learn from our 
+                        mistakes, and push each other to continuously improve. We identify better 
+                        ways of doing things and translate them into execution. 
+                        <strong>The status-quo is kryptonite. </strong>  
+                </p>     
+            </div>
+    </div>
+    <div class="mobile-accordion__item">
+            <div class="mobile-accordion__value">Value # 3</div>
+        <div class="mobile-accordion__title" data-tab-item="#tab3">
+                <div>Love our tech. Love our customers.</div>
+                <div class="mobile-accordion__down-caret">◂</div>
+        </div>
+        <div class="mobile-accordion__content" data-tab-content-section="" id="tab3">
+                Our platform solves a very complex problem in a currently underserved market.  
+                But developing a fully-integrated Sales Performance Platform that doesn’t cut 
+                corners is not easy.  Everyone at Forma strives to be an expert in our product 
+                and we support our team members to that end.  We value diverse perspectives and
+                 leverage this to continuously identify ways to<strong>move the product forward. </strong>
+                <p>
+                        We act as both advisers and operational partners to our customers.  Their trust 
+                        is earned starting day one, through integrity and putting them first. While 
+                        everyone at Forma isn’t customer-facing,<strong>we’re all customer-focused.</strong> 
+                        Maybe even slightly customer-obsessed. ­
+                </p>             
+                        </div>
+    </div>
+    </div>
+    <script>
+        const accordionTabs = document.querySelectorAll('[data-tab-item]');
+        const accordionContents = document.querySelectorAll('[data-tab-content-section]');
+        
+        accordionTabs.forEach((tab) =>{
+            tab.addEventListener('click', (event) =>{
+                const targetAccordion = document.querySelector(tab.dataset.tabItem);
+                    targetAccordion.classList.toggle("activeClass");
+                    tab.classList.toggle("activeTabClass");
+            })
+        })
+        
+        
+        </script>
+</body>
+</html>

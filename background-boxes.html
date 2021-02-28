@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @media(min-width: 992px){
+        
+        .stats-box{
+        width: 95%;
+        }
+        }
+           .animation{
+           opacity: 0;
+           }
+           .flex-container{
+           display: flex;
+           text-align: center;
+           gap: 50px;
+           }
+           .stats-box-text{
+           margin: auto 10% 10%;
+        font-size: 16px;
+           }
+           .stats-box{
+           box-shadow:
+           0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+           0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+           0 12.5px 10px rgba(0, 0, 0, 0.035),
+           0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+           0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+           0 100px 80px rgba(0, 0, 0, 0.07)
+           ;
+           background: white !important;
+           }
+           .frontpage-stats{
+           font-size: 60px;
+           font-weight: 700;
+           color: #6b3ecc;
+           margin-top: 10%;
+           margin-bottom: 0px !important;
+           }
+           .frontpage-stats__subheading{
+            font-size: 24px;
+            margin-top: 0px !important;
+            color: #6b3ecc;
+            font-weight: 700;
+        }
+           @keyframes anim1{
+           from {
+           transform: translateY(50px);
+           opacity: 0;
+           }
+           to {
+           transform: translateY(0);
+           opacity: 1;
+           }
+           }
+        </style>
+        <div style="background: linear-gradient(180deg, #17102c 50%, #ffffff 50%);">
+           <div class="flex-container">
+              <div class="animation stats-box" data-delay="0s">
+                 <h2 class="frontpage-stats">99%</h2>
+                 <h4 class="frontpage-stats__subheading">Forecast Accuracy</h4>
+                 <p class="stats-box-text">
+        Unsurpassed incentive comp management accuracy.         </p>
+              </div>
+              <div class="animation stats-box" data-delay="0.1s">
+                 <h2 class="frontpage-stats">3x</h2>
+                 <h4 class="frontpage-stats__subheading">Faster Deployment</h4>
+                 <p class="stats-box-text">
+                    Forma deployment averages 3 times faster than the category.
+                 </p>
+              </div>
+              <div class="animation stats-box" data-delay="0.2s">
+                 <h2 class="frontpage-stats">90%</h2>
+                        <h4 class="frontpage-stats__subheading">Admin Automation</h4>
+                 <p class="stats-box-text">
+        Automate up to 90% of manual administration processes.         </p>
+              </div>
+           </div>
+        </div>
+        <script>
+           const anim = document.querySelectorAll('.animation');
+           
+             observerThree = new IntersectionObserver((entries) =>{
+           
+           entries.forEach(entry => {
+           if(entry.intersectionRatio > 0){
+           entry.target.style.animation = `anim1 0.5s ${entry.target.dataset.delay} forwards ease-out`;
+           }
+           else {
+           entry.target.style.animation = 'none';
+           }
+           })
+             })
+           anim.forEach(animate => {
+           observerThree.observe(animate);
+           })
+        </script>
+</body>
+</html>
