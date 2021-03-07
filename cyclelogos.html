@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<style>
+.fadein {
+    position:absolute;
+    top:0px;
+    left:17%;
+    margin:auto;
+}
+.fadein img {
+    position:absolute;
+    left:-65px;
+    top:0;
+    -webkit-animation-name: fade;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 4s;
+    animation-name: fade;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+}
+
+.fadein2 {
+    position:absolute;
+    top:0px;
+    left:37%;
+    margin:auto;
+}
+.fadein2 img {
+    position:absolute;
+    left:-65px;
+    top:0;
+    -webkit-animation-name: fade;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 4s;
+    animation-name: fade;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+}
+
+.fadein3 {
+    position:absolute;
+    top:0px;
+    left:57%;
+    margin:auto;
+}
+.fadein3 img {
+    position:absolute;
+    left:-65px;
+    top:0;
+    -webkit-animation-name: fade;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 4s;
+    animation-name: fade;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+}
+
+
+@-webkit-keyframes fade {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    33% {opacity: 1;}
+    53% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@keyframes fade {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    33% {opacity: 1;}
+    53% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+#f2 {
+    -webkit-animation-delay: -4s;
+}
+#f3 {
+    -webkit-animation-delay: -2s;
+}
+
+#f4 {
+    -webkit-animation-delay: -3s;
+}
+#f5 {
+    -webkit-animation-delay: -1s;
+}
+
+#f6 {
+    -webkit-animation-delay: -2s;
+}
+#f7 {
+    -webkit-animation-delay: -4s;
+}
+
+.logoBank{
+    display: flex;
+    justify-content: center;
+}
+
+.logosRight{
+    margin-left: 700px;
+}
+
+.logos{
+    display: flex;
+    gap: 100px;
+}
+</style>
+<div class="logoBank">
+    <div class="logosLeft logos">
+            <div class="fadein3">
+                    <img id="f6" src="logos/edmentum.png">
+                    <img id="f7" src="logos/opentable.png">
+            </div>
+    </div>
+
+        <div class="fadein">
+                <img id="f3" src="logos/Intelepeer.png">
+                <img id="f2" src="logos/edmentum.png">
+            </div>
+            
+            <div class="logosRight logos">
+                <div class="fadein2">
+                        <img id="f4" src="logos/edmentum.png">
+                        <img id="f5" src="logos/opentable.png">
+                </div>
+            </div>
+</div>
+</body>
+</html>
